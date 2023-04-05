@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyVoiceApp6.Pages.ToolsPage"
+             Title="Tools">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <VerticalStackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+        <Label x:Name="lblmessage" FontSize="Large" />
+        <Button x:Name="btnuser"
+                Text="User Data"
+                Clicked="btnuser_Clicked" />
+        <Button x:Name="btnsettings"
+                Text="Settings"
+                Clicked="btnsettings_Clicked" />
+        <Button x:Name="btnlogout"
+                Text="Logout"
+                Clicked="btnlogout_Clicked" />
+        
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyVoiceApp6.Pages.EditWordsPage"
+             Title="Edit Words">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    
+    <VerticalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="End">
+            <Button x:Name="btnnew"
+                    Text="New"
+                    Style="{StaticResource ToolBarButton}"
+                    Clicked="btnnew_Clicked" />
+            <Button x:Name="btnsave"
+                    Text="Save"
+                    Style="{StaticResource ToolBarButton}"
+                    Clicked="btnsave_Clicked" />
+            <Button x:Name="btntalk"
+                    Style="{StaticResource ToolBarButton}"
+                    Text="Talk"
+                    Clicked="btntalk_Clicked" />
+            <Button x:Name="btndelete"
+                    Text="Delete"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="btndelete_Clicked" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Picker  x:Name="picgroup" 
+                     Title="Group"
+                     ItemDisplayBinding="{Binding Name}"
+                     SelectedIndexChanged="picgroup_SelectedIndexChanged"
+                     />
+            <Entry x:Name="eorder" Placeholder="Order"  />
+
+        </HorizontalStackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <Entry x:Name="etext"  MinimumWidthRequest="300" Placeholder="Title" />
+         
+        </StackLayout>
+        <ListView x:Name="ListWords" SeparatorColor="Blue"
+                  ItemSelected="ListWords_ItemSelected"
+                      ItemTapped="ListWords_ItemTapped"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" TextColor="Black" ></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

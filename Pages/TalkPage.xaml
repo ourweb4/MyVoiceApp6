@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyVoiceApp6.Pages.TalkPage"
+             Title="Talk">
+     <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+
+    <VerticalStackLayout>
+        <StackLayout  Orientation="Horizontal">
+            <Entry x:Name="etext" HorizontalOptions="FillAndExpand" Placeholder="Text"></Entry>
+            <Picker  x:Name="picgroup" 
+                     Title="Group"
+                     ItemDisplayBinding="{Binding Name}"
+                     SelectedIndexChanged="picgroup_SelectedIndexChanged"
+                     />
+            <Button Text="Talk" Clicked="Buttalk_Clicked"></Button>
+            <Button Text="Clear" Clicked="ButClear_Clicked" />
+            <Button Text="Add" Clicked="ButAdd_OnClicked" ></Button>
+        </StackLayout>
+        <ListView x:Name="ListWords" SeparatorColor="Blue"
+                      ItemTapped="ListWords_OnItemTapped"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" TextColor="Black" ></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

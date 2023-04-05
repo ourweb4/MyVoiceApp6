@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MyVoiceApp6.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MyVoiceApp6.Pages"
+    Shell.FlyoutBehavior="Flyout">
+    
+    <FlyoutItem Title="Login/Logout"  Route="LoginPage">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Talk" Route="TalkPage">
+        <ShellContent ContentTemplate="{DataTemplate local:TalkPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Edit">
+        <Tab Title="Words">
+            <ShellContent Title="Words" ContentTemplate="{DataTemplate local:EditWordsPage}" />
+            
+        </Tab>
+        <Tab Title="Groups">
+            <ShellContent Title="Groups" ContentTemplate="{DataTemplate local:EditGroupsPage}" />
+
+        </Tab>
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Help" Route="HelpPage">
+        <ShellContent ContentTemplate="{DataTemplate local:HelpPage}" />
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Tools" Route="ToolsPage">
+        <ShellContent ContentTemplate="{DataTemplate local:ToolsPage}" />
+    </FlyoutItem>
+
+
+</Shell>

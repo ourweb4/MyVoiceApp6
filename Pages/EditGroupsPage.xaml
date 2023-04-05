@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyVoiceApp6.Pages.EditGroupsPage"
+             Title="Edit Groups">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <VerticalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="End">
+            <Button x:Name="btnnew"
+                    Text="New"
+                    Style="{StaticResource ToolBarButton}"
+                    Clicked="btnnew_Clicked" />
+            <Button x:Name="btnsave"
+                    Text="Save"
+                    Style="{StaticResource ToolBarButton}"
+                    Clicked="btnsave_Clicked" />
+    
+            <Button x:Name="btndelete"
+                    Text="Delete"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="btndelete_Clicked" />
+        </HorizontalStackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <Entry x:Name="ename"  MinimumWidthRequest="300" Placeholder="Name" />
+
+        </StackLayout>
+        <ListView x:Name="Listgroups" SeparatorColor="Blue"
+                  ItemSelected="Listgroups_ItemSelected"
+                      ItemTapped="Listgroups_ItemTapped"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" TextColor="Black" ></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
