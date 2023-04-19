@@ -185,7 +185,38 @@ namespace MyVoiceApp6.Utitlys
             }
 
 
+       }
+
+        public async Task<string> Forgot(ForgotVM forgot)
+        {
+
+            //      var myApp = Application.Current as App;
+            var json = JsonConvert.SerializeObject(forgot);
+            var content =
+                 new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(aUri("/Forgot"), content);
+            status = response.StatusCode;
+            if (status == HttpStatusCode.OK || status == HttpStatusCode.Created)
+            {
+                var resdata = await response.Content.ReadAsStringAsync();
+
+                var rjson = JsonConvert.DeserializeObject<Apinet>(resdata);
+
+                // myApp.token = rjson.Token;
+//                Preferences.Set("token", rjson.token.plainTextToken);
+
+                return null;
+
+            }
+            else
+            {
+                message = Api_error(status);
+                return message;
+            }
+
+
         }
+
 
 
         /// <summary>

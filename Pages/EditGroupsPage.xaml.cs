@@ -75,11 +75,13 @@ public partial class EditGroupsPage : ContentPage
     /// </summary>
     private void ReadDB(ObservableCollection<Group> groups)
     {
-        groups =  (ObservableCollection<Group>) db.ReadGroups();
+       var groups1 =   db.ReadGroups();
+        groups = new ObservableCollection<Group>();
+        foreach (var group in groups1) {
+           groups.Add(group);
+        }
 
 
-
-   
         Listgroups.ItemsSource = groups;
 
         //       NewWord();

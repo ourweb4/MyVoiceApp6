@@ -24,6 +24,9 @@
         <Button x:Name="btnlogin"
                 Text="Login" 
                 Clicked="btnlogin_Clicked" />
+        <Button x:Name="btnforgot"
+                 Text="Forgot Password"
+                Clicked="btnforgot_Clicked" />
         <Button x:Name="btnregister"
                 Text="Registar"
                 Clicked="btnregister_Clicked" />

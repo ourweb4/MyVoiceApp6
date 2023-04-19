@@ -136,5 +136,12 @@ namespace MyVoiceApp6.Pages
 
             await Shell.Current.GoToAsync($"//{nameof(TalkPage)}");
         }
+
+        private async void btnforgot_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ForgotPage)}");
+
+
+        }
     }
 }

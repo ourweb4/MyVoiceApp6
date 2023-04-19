@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 
@@ -56,7 +57,7 @@ namespace MyVoiceApp6.Utitlys
         /// </summary>
         /// <param name="gno">The gno.</param>
         /// <returns>IList&lt;Word&gt;.</returns>
-        public IList<Word> ReadWords(int gno = -1)
+        public ObservableCollection<Word> ReadWords(int gno = -1)
         {
             IList<Word> Words = new List<Word>();
             if (gno == -1)
@@ -75,7 +76,14 @@ namespace MyVoiceApp6.Utitlys
      .ToList();
             }
 
-            return Words;
+            var OWords = new ObservableCollection<Word>();
+            foreach (var w in Words)
+            {
+                OWords.Add(w);
+
+            }
+
+            return OWords;
         }
 
         /// <summary>
