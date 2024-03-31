@@ -11,6 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using MyVoiceApp6.Utitlys;
+
 namespace MyVoiceApp6.Pages;
 
 /// <summary>
@@ -24,14 +26,18 @@ public partial class ToolsPage : ContentPage
     /// Initializes a new instance of the <see cref="ToolsPage" /> class.
     /// </summary>
     public ToolsPage()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+
+
+
+
+    }
 
     /// <summary>
     /// Called when [appearing].
     /// </summary>
-    protected override  void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
 
@@ -41,11 +47,14 @@ public partial class ToolsPage : ContentPage
             btnlogout.IsEnabled = true;
             btnuser.IsEnabled = true;
             lblmessage.Text = "";
+            btndistory.IsEnabled = true;
+
         }
         else
         {
-            btnlogout.IsEnabled = false;                            
-            btnuser.IsEnabled=false;
+            btnlogout.IsEnabled = false;
+            btnuser.IsEnabled = false;
+            btndistory.IsEnabled = false;
             lblmessage.Text = "You are not login";
         }
 
@@ -56,9 +65,9 @@ public partial class ToolsPage : ContentPage
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-    private async void  btnuser_Clicked(object sender, EventArgs e)
+    private async void btnuser_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("UserPage")  ;
+        await Shell.Current.GoToAsync("UserPage");
 
     }
 
@@ -82,5 +91,26 @@ public partial class ToolsPage : ContentPage
         Preferences.Set("token", null);
 
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+    }
+
+    private async void btndistory_Clicked(object sender, EventArgs e)
+    {
+        // write a yes no dialog asking if they want to delete all data
+
+        var answer = DisplayAlert("Delete All Data", "Are you sure you want to delete all data", "Yes", "No");
+
+        // if yes then delete all data
+        if (answer != null)
+        {
+            if (answer.Result)
+            {
+                Api api = new Api();
+                var mes = await api.Distory();
+                Preferences.Set("token", null);
+
+
+            }
+
+        }
     }
 }

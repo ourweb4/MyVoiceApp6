@@ -21,7 +21,7 @@
 
             
                 <Entry Placeholder="First name"
-                      Text="{Binding Firstname}" />
+                      Text="{Binding  Firstname}" />
                 <Entry Placeholder="Last name"
                        Text="{Binding Lastname}" />
        

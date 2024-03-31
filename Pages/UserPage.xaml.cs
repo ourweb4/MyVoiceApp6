@@ -1,13 +1,13 @@
 ﻿// ***********************************************************************
 // Assembly         : MyVoiceApp6
-// Author           : Bill Banks
-// Created          : 02-03-2023
+// Author           : Bill
+// Created          : 08-09-2023
 //
-// Last Modified By : Bill Banks
-// Last Modified On : 02-03-2023
+// Last Modified By : Bill
+// Last Modified On : 08-09-2023
 // ***********************************************************************
 // <copyright file="UserPage.xaml.cs" company="MyVoiceApp6">
-//     Copyright (c) ourweb.net. All rights reserved.
+//     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -111,6 +111,53 @@ namespace MyVoiceApp6.Pages
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private async void btnsave_Clicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(user.Firstname))
+            {
+                await DisplayAlert("Error", "First Name is required", "Ok");
+                return;
+            }   
+            if (string.IsNullOrEmpty(user.Lastname))
+            {
+                await DisplayAlert("Error", "Last Name is required", "Ok");
+                return;
+            }   
+            if (string.IsNullOrEmpty(user.Name))
+            {
+                await DisplayAlert("Error", "Name is required", "Ok");
+                return;
+            }
+            if (string.IsNullOrEmpty(user.Email))
+            {
+                await DisplayAlert("Error", "Email is required", "Ok");
+                return;
+            }
+            if (string.IsNullOrEmpty(user.Phonenumber))
+            {
+                await DisplayAlert("Error", "Phone is required", "Ok");
+                return;
+            }   
+            if (string.IsNullOrEmpty(user.Address))
+            {
+                await DisplayAlert("Error", "Address is required", "Ok");
+                return;
+            }
+            if (string.IsNullOrEmpty(user.City))
+            {
+                await DisplayAlert("Error", "City is required", "Ok");
+                return;
+            }
+            if (string.IsNullOrEmpty(user.State))
+            {
+                await DisplayAlert("Error", "State is required", "Ok");
+                return;
+            }   
+            if (string.IsNullOrEmpty(user.Zipcode))
+            {
+                await DisplayAlert("Error", "Zip is required", "Ok");
+                return;
+
+            }
+
             activity.IsVisible = true;
             activity.IsRunning = true;
 
@@ -118,6 +165,7 @@ namespace MyVoiceApp6.Pages
             await api.SaveUser(user);
             activity.IsRunning = false;
             activity.IsVisible = false;
+
 
             await Shell.Current.GoToAsync($"//{nameof(TalkPage)}");
 

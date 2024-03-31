@@ -22,10 +22,14 @@
         <Button x:Name="btnsettings"
                 Text="Settings"
                 Clicked="btnsettings_Clicked" />
+        <Button x:Name="btndistory"
+                Text="Distroy Data"
+                Clicked="btndistory_Clicked" />
         <Button x:Name="btnlogout"
                 Text="Logout"
                 Clicked="btnlogout_Clicked" />
         
+
 
 
     </VerticalStackLayout>

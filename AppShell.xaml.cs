@@ -42,5 +42,9 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("EditWordsPage", typeof(EditWordsPage));
         Routing.RegisterRoute("EditGroupsPage", typeof(EditGroupsPage));
 
+        Routing.RegisterRoute("UploadDownloadPage", typeof(UploadDownloadPage));
+
+
+
     }
 }

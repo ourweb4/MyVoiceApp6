@@ -47,7 +47,7 @@ namespace MyVoiceApp6.Pages
                     var message = await api.Register(registerdata);
                     if (api.IsOk())
                     {
-                        await Shell.Current.GoToAsync("UserPage");
+                        await Shell.Current.GoToAsync($"//{nameof(UserPage)}");
 
                     } else
                         await DisplayAlert("Error", message, "Ok");

@@ -4,7 +4,7 @@
 // Created          : 09-29-2022
 //
 // Last Modified By : Bill
-// Last Modified On : 03-07-2023
+// Last Modified On : 03-26-2024
 // ***********************************************************************
 // <copyright file="Api.cs" company="MyVoiceApp6">
 //     Copyright (c) . All rights reserved.
@@ -186,7 +186,33 @@ namespace MyVoiceApp6.Utitlys
 
 
        }
-
+        /// <summary>
+        /// Distories this instance.
+        /// </summary>
+        /// <returns>System.String.</returns>
+        public async Task<string> Distory()
+        {
+            setheader();
+            var response = await client.PostAsync(aUri("/Distoryuser"), new StringContent(""));
+            status = response.StatusCode;
+            if (status == HttpStatusCode.OK || status == HttpStatusCode.Created)
+            {
+ //               var resdata = await response.Content.ReadAsStringAsync();
+ //               var rjson = JsonConvert.DeserializeObject<Apinet>(resdata);
+                // myApp.token = rjson.Token;
+                return null;
+            }
+            else
+            {
+                message = Api_error(status);
+                return message;
+            }
+        }
+        /// <summary>
+        /// Forgots the specified forgot.
+        /// </summary>
+        /// <param name="forgot">The forgot.</param>
+        /// <returns>System.String.</returns>
         public async Task<string> Forgot(ForgotVM forgot)
         {
 
